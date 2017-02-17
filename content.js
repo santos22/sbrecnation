@@ -10,12 +10,15 @@ chrome.runtime.onMessage.addListener(
       console.log(rec[0]);
 
       // GET ONLY RECOMMENDED COMMENTS
-      console.log(rec[0].getElementsByClassName('c-comments__comment c-comments__recommended')[1].id)
+      var comment = rec[0].getElementsByClassName('c-comments__comment c-comments__recommended')[1].id;
+      console.log(comment);
+
+      $('html, body').animate({
+        scrollTop: $("#416054535").offset().top
+    }, 2000);
 
       //var IDs = [];
       //$("#mydiv").find("span").each(function(){ IDs.push(this.id); });
-
-      //console.log();
 
       // This line is new!
       chrome.runtime.sendMessage({"message": "open_new_tab", "url": firstHref});
